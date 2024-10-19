@@ -1,0 +1,10 @@
+chinjto:
+  games:
+    dev:
+      shell:
+        sleep: 0
+logging:
+  level:
+    fr:
+      chinjto:
+        games: TRACE

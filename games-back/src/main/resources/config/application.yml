@@ -1,0 +1,6 @@
+application:
+  name: "@project.name@"
+  version: "@project.version@"
+spring:
+  application:
+    name: games-back
