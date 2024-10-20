@@ -1,6 +1,7 @@
 package fr.chinjto.games.back.server.resources;
 
 import fr.chinjto.games.back.business.services.PalworldServices;
+import fr.chinjto.games.back.server.resources.annotations.ServerResource;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import static fr.chinjto.games.back.server.resources.Action.RESTART;
+import static fr.chinjto.games.back.server.resources.Action.START;
+import static fr.chinjto.games.back.server.resources.Action.STOP;
+import static fr.chinjto.games.back.server.resources.Action.UPDATE;
+import static fr.chinjto.games.back.server.resources.Server.PALWORLD;
 
 /**
  * @author Cyril DEFAYE
@@ -24,34 +31,30 @@ public class PalworldResources {
     private final PalworldServices services;
 
     @PostMapping("/run")
+    @ServerResource(server = PALWORLD, action = START)
     public ResponseEntity<Void> startPalworld() {
-        log.info("Starting Palworld Server");
         this.services.start();
-        log.info("Started Palworld Server");
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/run")
+    @ServerResource(server = PALWORLD, action = RESTART)
     public ResponseEntity<Void> restartPalworld() {
-        log.info("Restarting Palworld Server");
         this.services.restart();
-        log.info("Restarted Palworld Server");
         return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/run")
+    @ServerResource(server = PALWORLD, action = STOP)
     public ResponseEntity<Void> stopPalworld() {
-        log.info("Stopping Palworld Server");
         this.services.stop();
-        log.info("Stopped Palworld Server");
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/update")
+    @ServerResource(server = PALWORLD, action = UPDATE)
     public ResponseEntity<Void> updatePalworld() {
-        log.info("Updating Palworld Server");
         this.services.update();
-        log.info("Updated Palworld Server");
         return ResponseEntity.noContent().build();
     }
 

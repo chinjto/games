@@ -20,15 +20,15 @@ public class ShellManagerDevImpl extends ShellManagerProdImpl {
 
     @Override
     protected void execute(Arguments args) {
-        log.trace("-- DEV MOCK --");
-        log.trace("Mock demandé : {}", args);
-        log.trace("Simulation du traitement pendant {}ms...", mocksProperties.sleep());
+        log.trace(" |------ DEV MOCK ------|");
+        log.trace(" | Mock demandé : {}", args);
+        log.trace(" | Simulation du traitement pendant {}ms...", mocksProperties.sleep());
         try {
             Thread.sleep(mocksProperties.sleep());
         } catch (final InterruptedException te) {
             log.error("Thread de pause interrompu par le système.", te);
         }
-        log.trace("-- END MOCK --");
+        log.trace(" |------ END MOCK ------");
     }
 
 }

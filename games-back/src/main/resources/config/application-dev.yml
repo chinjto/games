@@ -7,4 +7,4 @@ logging:
   level:
     fr:
       chinjto:
-        games: TRACE
+#        games: TRACE
