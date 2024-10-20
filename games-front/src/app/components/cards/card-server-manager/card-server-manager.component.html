@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-title>Gestion du serveur {{server().name}}</mat-card-title>
+  <mat-card-subtitle>
+    @if (isOn) {
+      <p>Statut : <strong style="color: #6f6">Démarré</strong></p>
+    } @else {
+      <p>Statut : <strong style="color: #f66">Arrêté</strong></p>
+    }
+  </mat-card-subtitle>
+  <mat-card-content>
+    <p>
+      <button (click)="start()"><mat-icon fontIcon="play_circle_outline" style="color: #6f6" /></button>
+      Démarrer le serveur {{server().name}}
+    </p>
+    <p>
+      <button (click)="restart()"><mat-icon fontIcon="replay_circle" style="color: #66f" /></button>
+      Redémarrer le serveur {{server().name}}
+    </p>
+    <p>
+      <button (click)="stop()"><mat-icon fontIcon="stop_circle" style="color: #f66" /></button>
+      Arrêter le serveur {{server().name}}
+    </p>
+    @if (updatable()) {
+      <p>
+        <button (click)="update()">
+          <mat-icon fontIcon="build_circle" style="color: #666"/>
+        </button>
+        Mettre à jour le serveur {{server().name}}
+      </p>
+    }
+  </mat-card-content>
+</mat-card>

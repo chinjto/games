@@ -1,0 +1,39 @@
+@media (min-width: 768px) {
+  .sidebar {
+    width: 14rem !important;
+  }
+}
+
+a, a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.bg-gradient-warning {
+  background-color: #f6c23e;
+  background-image: linear-gradient(180deg, #f6c23e 10%, #dda20a 100%);
+  background-size: cover;
+}
+
+.sidebar {
+  color: #fff;
+  width: 6.5rem;
+  min-height: 100vh;
+}
+
+.sidebar-divider {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, .15);
+}
+
+.sidebar-brand {
+  height: 4.375rem;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .05rem;
+  z-index: 1;
+}
